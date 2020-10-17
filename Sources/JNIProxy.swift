@@ -17,11 +17,7 @@
 open class JNIReleasableProxy {
 
     static fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
-#if os(Android)
-        let swiftPointer = uintptr_t(swiftObject&0xffffffff)
-#else
         let swiftPointer = uintptr_t(swiftObject)
-#endif
         if swiftPointer == 0 {
             JNI.report( "Race condition setting swiftObject on Java Proxy. More thought required...", file, line )
         }
