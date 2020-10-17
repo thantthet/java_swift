@@ -3,6 +3,8 @@
 
 /// interface java.lang.Runnable ///
 
+import Foundation
+
 public protocol Runnable: JavaProtocol {
 
     /// public abstract void java.lang.Runnable.run()
